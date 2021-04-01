@@ -1,0 +1,35 @@
+{% extends "product-base.html" %}
+{% block content %}
+<div class="centre_with_borders">
+  <h1>Settings</h1>
+  <br />
+  <table class="table">
+  <tbody>
+    <tr>
+      <td>Dark mode:</td>
+      <td>
+        {% if session['colmode'] == 'dark' %}
+        <form method="POST" action ="">
+          <input type="submit" class = "register-button" value="OFF" style="margin: 0px;
+              padding-top: 5px; padding-bottom: 5px;">
+        </form>
+        {% else %}
+        <form method="POST" action ="">
+          <input type="submit" class = "register-button" value="ON" style="margin: 0px;
+              padding-top: 5px; padding-bottom: 5px;">
+        </form>
+        {% endif %}
+      </td>
+    </tr>
+    <tr>
+      <td>Change password: </td>
+      <td>
+        <a href="/password-change" class="shopnow" style="margin: 0px;
+            padding-top: 5px; padding-bottom: 5px;">Edit</a>
+      </td>
+    </tr>
+  </tbody>
+  </table>
+  <br />
+</div>
+{% endblock %}

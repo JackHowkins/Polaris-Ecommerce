@@ -1,0 +1,64 @@
+<head>
+    <title>Account Information - Polaris | Streetwear Apparel</title>
+</head>
+
+{% extends "base.html" %}
+
+{% block headerleft %}
+  <h1>Your Information</h1><br />
+  <table class="table">
+  <!-- for loop through the task and add a new row to the table -->
+  <tbody>
+    <tr>
+      <td>Firstname: </td>
+      <td>{{g.customer.firstname}}</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Surname: </td>
+      <td>{{g.customer.surname}}</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Email: </td>
+      <td>{{g.customer.email}}</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Password: </td>
+      <td>{{anonpass}}</td>
+      <td>
+        <a href="/password-change" class="shopnow" style="padding: 3px 12px; margin: 0px;">Edit</a>
+      </td>
+    </tr>
+  </tbody>
+  </table>
+  <div style="text-align: center;">
+      <a href="/sign-out" class="shopnow" style="margin: 5px;">Sign Out</a>
+  </div>
+{% endblock %}
+
+{% block headerright %}
+<div class="basket-content">
+  <h1>Your Past Orders</h1><br />
+  <table class="table">
+  <tbody>
+    {% if numpurchases == 0 %}
+      <h4>You have made no orders</h4>
+    {% endif %}
+    {% for i in range(numpurchases) %}
+    <tr>
+      <td><img src="{{purchases[i].image}}" /></td>
+      <td>
+        <b>{{purchases[i].productname}}</b><br />
+      </td>
+      <td><b>£{{purchases[i].price}}.00</b></td>
+    </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
+
+{% block content %}
+
+{% endblock %}

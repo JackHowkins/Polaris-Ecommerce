@@ -1,0 +1,55 @@
+<head>
+    <title>Register - Polaris | Streetwear Apparel</title>
+</head>
+
+{% extends "product-base.html" %}
+{% block content %}
+
+<div class="smallest-container">
+  <h1>Register</h1>
+  <p>Already have an account? <a href="/account">Sign in here</a></p>
+  <form action="" method="post" name="register">
+      {{ form.hidden_tag() }}
+      <p>Firstname: </p>
+      {{ form.firstname(class_='form-control') }}
+      {% for error in form.firstname.errors %}
+       <div class="alert alert-danger w-100" role="alert">
+          [{{ error }}]
+       </div>
+      {% endfor %}
+      <br>
+      <p>Surname: </p>
+      {{ form.surname(class_='form-control') }}
+      {% for error in form.surname.errors %}
+       <div class="alert alert-danger w-100" role="alert">
+          [{{ error }}]
+       </div>
+      {% endfor %}
+      <br>
+      <div class="fieldinfo">
+        <p style="display: inline;">Email: </p>
+        <span class="fieldinfotext">Must include '@' and '.'</span>
+      </div>
+      {{ form.email(class_='form-control') }}
+      {% for error in form.email.errors %}
+       <div class="alert alert-danger w-100" role="alert">
+          [{{ error }}]
+       </div>
+      {% endfor %}
+      <br>
+      <div class="fieldinfo">
+        <p style="display: inline;">Password: </p>
+        <span class="fieldinfotext">More than 6 characters</span>
+      </div>
+      {{ form.password(class_='form-control') }}
+      {% for error in form.password.errors %}
+      <div class="alert alert-danger" role="alert">
+        [{{ error }}]
+      </div>
+      {% endfor %}
+      <br>
+      <input type="submit" class="shopnow" value="Register" style="border: 0px; margin-top: 0px; margin-bottom: 20px;">
+  </form>
+</div>
+
+{% endblock %}

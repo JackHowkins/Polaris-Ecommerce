@@ -1,0 +1,105 @@
+{% extends "product-base.html" %}
+{% block content %}
+<div class="centre_with_borders">
+  <div class="row">
+    <div class="col=2">
+      <figure class="magnify" style='background-image: url({{product[0].image}})' onmousemove='magnify(event)'>
+        <img src="{{product[0].image}}" width ="350px"/>
+      </figure>
+    </div>
+    <div class="col=2">
+      <p>{{product[0].category}}s</p>
+      <h4>POLARIS {{product[0].productname}}</h4>
+      <p>£{{product[0].price}}.00</p>
+      {% if product[0].xsstocklevel + product[0].sstocklevel + product[0].mstocklevel +
+      product[0].lstocklevel + product[0].xlstocklevel >= 1 %}
+        <form action="" method="post" name="Sign In">
+            {{ form.hidden_tag() }}
+            {{ form.size(class_='form-control') }}
+            {% for error in form.size.errors %}
+             <div class="alert alert-danger w-100" role="alert">
+                [{{ error }}]
+             </div>
+            {% endfor %}
+            <br />
+            <input type="submit" class="shopnow" value="Add to basket" style="border: 0px; margin-top: 0px; margin-bottom: 20px;">
+        </form>
+        <br />
+      {% else %}
+        <p style="color: red;">OUT OF STOCK</p>
+      {% endif %}
+    </div>
+  </div>
+  <br /><br />
+  <div class="row">
+      <h2>Product Description</h2>
+  </div>
+  <div class="row">
+      <p>{{product[0].description}}</p>
+  </div>
+  <div class="row">
+  </div>
+  <div class="row">
+      <div class="col-3">
+        <h4>Product Information</h4>
+        <table class="table">
+          <tbody>
+            <tr>
+              <td><b>Name:</b></td>
+              <td>{{product[0].productname}}</td>
+            </tr>
+            <tr>
+              <td><b>Price:</b></td>
+              <td>£{{product[0].price}}.00</td>
+            </tr>
+            <tr>
+              <td><b>Category:</b></td>
+              <td>{{product[0].category}}</td>
+            </tr>
+            <tr>
+              <td><b>Range:</b></td>
+              <td>{{product[0].range}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      {% if product[0].category != 'Beanie' %}
+      <div class="col-3">
+        <h4>Find your size:</h4><br />
+        <b><p>Weight: <span id="weightvalue"></span> kg</p></b>
+        <input type="range" min="40" max="120" value="80" class="slider" id="weightslide">
+        <p>Recommended Size: </p>
+        <b><p><span id="recsize"></span></p></b>
+      </div>
+      {% endif %}
+      <div class="col-3">
+        <h4>Current Stock Levels:</h4>
+        <table class="table">
+          <tbody>
+            <tr>
+              <td><b>Extra Small (XS):</b></td>
+              <td>{{product[0].xsstocklevel}}</td>
+            </tr>
+            <tr>
+              <td><b>Small (S):</b></td>
+              <td>{{product[0].sstocklevel}}</td>
+            </tr>
+            <tr>
+              <td><b>Medium (M):</b></td>
+              <td>{{product[0].mstocklevel}}</td>
+            </tr>
+            <tr>
+              <td><b>Large (L):</b></td>
+              <td>{{product[0].lstocklevel}}</td>
+            </tr>
+            <tr>
+              <td><b>Extra Large (XL):</b></td>
+              <td>{{product[0].xlstocklevel}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+  </div>
+</div>
+
+{% endblock %}

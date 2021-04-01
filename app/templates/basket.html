@@ -1,0 +1,65 @@
+<head>
+    <title>About - Polaris | Streetwear Apparel</title>
+</head>
+
+{% extends "base.html" %}
+
+{% block headerleft %}
+  <div class="basket-content">
+    <h1>Your Basket</h1><br />
+    <table class="table">
+    <!-- for loop through the task and add a new row to the table -->
+    <tbody>
+      {% if basketsize == 0 %}
+        <h4>Your basket is empty</h4>
+      {% endif %}
+      {% for i in range(basketsize) %}
+      <tr>
+        <td><img src="{{products[i].image}}" /></td>
+        <td>
+          <b>{{products[i].productname}}</b><br />
+        </td>
+        <td><b>{{sizes[i]}}</b></td>
+        <td><b>£{{products[i].price}}.00</b></td>
+        <td>
+            <form method="POST" action ="">
+              <input type="submit" class = "register-button" value="X" style="padding: 1px 4px; margin: 0px;">
+              <input type="hidden" class="register-button" value={{i}} name="remove"
+              style="padding: 1px 4px; margin: 0px;">
+            </form>
+        </td>
+      </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+    {% if basketsize > 0 %}
+    <a href="/checkout" class="shopnow" style="margin: 0px;">Checkout</a>
+    {% endif %}
+  </div>
+{% endblock %}
+
+{% block headerright %}
+  <h1>Our Returns Policy</h1><br />
+  <p>
+    If you are not satisfied with all or certain of the products you have<br />
+    ordered you may return them free of charge.<br />
+    <br />
+
+    Simply utilise the pre-printed returns label inside your order and<br />
+    drop off at your local Royal Mail drop-off location. Within the<br />
+    package be sure to include the provided information form including<br />
+    the reason for return and the products that you have chosen to return.<br />
+    <br />
+
+    Once you have sent the return, it will arrive to us within the next <br />
+    3 working days, we will let you know once we have recieved the parcel <br />
+    to indicate that we are processing the return, once it is fully <br />
+    processed we will once again contact you to let you know that the <br />
+    refund has been sent. Depending on your bank provider, this then <br />
+    should appear in your account within the next 7 working days.
+  </p>
+{% endblock %}
+
+{% block content %}
+
+{% endblock %}

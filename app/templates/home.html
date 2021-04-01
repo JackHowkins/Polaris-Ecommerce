@@ -1,0 +1,183 @@
+{% extends "base.html" %}
+
+{% block headerright %}
+  <img src="static/POLARIS TOP-01.png" width ="350px"/>
+{% endblock %}
+
+{% block headerleft %}
+  <h1>Clothing from <br /> The North Star</h1>
+  <br />
+  <p class="strapline">
+      High quality, well packaged and uniquely designed streetwear
+      <br /> apparel based out of Leeds, United Kingdom.<br />
+  </p>
+  <a href="/products" class="shopnow">Shop</a>
+{% endblock %}
+
+{% block content %}
+
+    <!-- Featured Categories -->
+    <div class="categories">
+      <div class="centre_with_borders">
+        <h1 class="features">Featured Products</h1>
+        <br />
+        <div class="row">
+          <div class="col-3">
+            <div class="featured-image-container">
+              <img src="{{featuredproducts[0].image}}" class="featured-image"/>
+              <div class="featured-image-overlay">
+                <a href="/product-details-id={{featuredproducts[0].productid}}" class="shopnow-featured">Shop</a>
+              </div>
+            </div>
+            <br />
+            <h4>{{featuredproducts[0].productname}}</h4>
+            <p>£{{featuredproducts[0].price}}.00</p>
+          </div>
+          <div class="col-3">
+            <div class="featured-image-container">
+              <img src="{{featuredproducts[1].image}}" class="featured-image"/>
+              <div class="featured-image-overlay">
+                <a href="/product-details-id={{featuredproducts[1].productid}}" class="shopnow-featured">Shop</a>
+              </div>
+            </div>
+            <br />
+            <h4>{{featuredproducts[1].productname}}</h4>
+            <p>£{{featuredproducts[1].price}}.00</p>
+          </div>
+          <div class="col-3">
+            <div class="featured-image-container">
+              <img src="{{featuredproducts[2].image}}" class="featured-image"/>
+              <div class="featured-image-overlay">
+                <a href="/product-details-id={{featuredproducts[2].productid}}" class="shopnow-featured">Shop</a>
+              </div>
+            </div>
+            <br />
+            <h4>{{featuredproducts[2].productname}}</h4>
+            <p>£{{featuredproducts[2].price}}.00</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Featured Products -->
+    <div class="centre_with_borders">
+        <h1 class="features">Best Sellers</h1>
+        <br />
+        <div class="row">
+            <div class="col-4">
+              <div class="featured-image-container">
+                <img src="{{bestsellers[0].image}}" class="featured-image" />
+                <div class="featured-image-overlay">
+                  <a href="/product-details-id={{bestsellers[0].productid}}" class="shopnow-featured">Shop</a>
+                </div>
+              </div>
+              <br />
+              <h4>{{bestsellers[0].productname}}</h4>
+              <p>£{{bestsellers[0].price}}.00</p>
+            </div>
+            <div class="col-4">
+              <div class="featured-image-container">
+                <img src="{{bestsellers[1].image}}" class="featured-image" />
+                <div class="featured-image-overlay">
+                  <a href="/product-details-id={{bestsellers[1].productid}}" class="shopnow-featured">Shop</a>
+                </div>
+              </div>
+              <br />
+              <h4>{{bestsellers[1].productname}}</h4>
+              <p>£{{bestsellers[1].price}}.00</p>
+            </div>
+            <div class="col-4">
+              <div class="featured-image-container">
+                <img src="{{bestsellers[2].image}}" class="featured-image" />
+                <div class="featured-image-overlay">
+                  <a href="/product-details-id={{bestsellers[2].productid}}" class="shopnow-featured">Shop</a>
+                </div>
+              </div>
+              <br />
+              <h4>{{bestsellers[2].productname}}</h4>
+              <p>£{{bestsellers[2].price}}.00</p>
+            </div>
+            <div class="col-4">
+              <div class="featured-image-container">
+                <img src="{{bestsellers[3].image}}" class="featured-image" />
+                <div class="featured-image-overlay">
+                  <a href="/product-details-id={{bestsellers[3].productid}}" class="shopnow-featured">Shop</a>
+                </div>
+              </div>
+              <br />
+              <h4>{{bestsellers[3].productname}}</h4>
+              <p>£{{bestsellers[3].price}}.00</p>
+            </div>
+        </div>
+    </div>
+    <!-- Best Sellers -->
+    <div class="centre_with_borders">
+        <h1 class="features">New Releases</h1>
+        <br />
+        <div class="row">
+          <div class="col-3">
+            <div class="featured-image-container">
+              <img src="{{newproudcts[2].image}}" class="featured-image" />
+              <div class="featured-image-overlay">
+                <a href="/product-details-id={{newproudcts[2].productid}}" class="shopnow-featured">Shop</a>
+              </div>
+            </div
+            <br />
+            <br />
+            <h4>{{newproudcts[2].productname}}</h4>
+            <p>£{{newproudcts[2].price}}.00</p>
+          </div>
+          <div class="col-3">
+            <div class="featured-image-container">
+              <img src="{{newproudcts[1].image}}" class="featured-image" />
+              <div class="featured-image-overlay">
+                <a href="/product-details-id={{newproudcts[1].productid}}" class="shopnow-featured">Shop</a>
+              </div>
+            </div>
+            <br />
+            <h4>{{newproudcts[1].productname}}</h4>
+            <p>£{{newproudcts[1].price}}.00</p>
+          </div>
+          <div class="col-3">
+            <div class="featured-image-container">
+              <img src="{{newproudcts[0].image}}" class="featured-image" />
+              <div class="featured-image-overlay">
+                <a href="/product-details-id={{newproudcts[0].productid}}" class="shopnow-featured">Shop</a>
+              </div>
+            </div>
+            <br />
+            <h4>{{newproudcts[0].productname}}</h4>
+            <p>£{{newproudcts[0].price}}.00</p>
+          </div>
+      </div>
+    </div>
+    <!-- Special offer -->
+    <div class="offer">
+      <div class="centre_with_borders">
+          <div class="row">
+              <div class="col=2">
+                <img src="static/ty-dy.jpg" width ="350px"/>
+              </div>
+              <div class="col=2">
+                <h2>Coming Soon: <br /> POLARIS MYSTERY RANGE</h2>
+                <h1 id="countdown"></h1>
+                <small>Exclusively online purchase only POLARIS 'Mystery' range. Our newest and
+                freshest design yet <br /> released for a limited time so buy quick!</small>
+                <h4></h4>
+                <br />
+              </div>
+          </div>
+      </div>
+    </div>
+    <!-- Social Medias -->
+    <br /><br />
+    <div class="centre_with_borders">
+        <h1 class="features">Follow us on Social Media</h1>
+        <br />
+        <a href="https://www.linkedin.com/" class="fa fa-linkedin"></a>
+        <a href="https://www.youtube.com/" class="fa fa-youtube"></a>
+        <a href="https://www.instagram.com/" class="fa fa-instagram"></a>
+        <a href="https://www.twitter.com/" class="fa fa-twitter"></a>
+        <a href="https://www.facebook.com/" class="fa fa-facebook"></a>
+        <br /><br />
+    </div>
+{% endblock %}
